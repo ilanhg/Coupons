@@ -1,0 +1,15 @@
+.Registration{
+   
+    height: 100%;
+    width: 100%;
+    background-color: powderblue;
+}
+.Registration form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 30%;
+}
+.Registration form >*{
+    font-size: small;
+}

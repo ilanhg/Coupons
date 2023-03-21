@@ -1,0 +1,13 @@
+.Login{
+    background-color: aliceblue;
+    height:100%;
+    width:50%;
+}
+.Login form{
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    width:100%;
+}
