@@ -5,17 +5,20 @@ const router = express.Router();
 const registeredUsersDal = require("./../data-access-layers/user-access-layer");
 
 router.get("/", (request, response) => {
-    console.log("we are win");
+  console.log("we are win");
   const users = registeredUsersDal.registerUsers();
   response.json(users);
 });
+
 router.get("/:id", (request, response) => {
   const idAfterParseToNumber = Number(request.params.id);
   const user = registeredUsersDal.oneRegisterUser(idAfterParseToNumber);
   response.json(user);
 });
+
 router.post("/", (request, response) => {
   console.log(request.body)
+  // const {id, firstName} = request.body
   const addNewId = new UserModel(
     request.body.id,
     request.body.firstName,
