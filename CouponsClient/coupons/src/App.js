@@ -6,13 +6,11 @@ import { userContext, userSignUp } from "./context/userContext";
 
 function App() {
   return (
-    <userContext.Provider value={userSignUp.signUpUser}>
-      <div className="App">
-        <Router>
-          <Routting />
-        </Router>
-      </div>
-    </userContext.Provider>
+    <div className="App">
+      <Router>
+        <Routting />
+      </Router>
+    </div>
   );
 }
 

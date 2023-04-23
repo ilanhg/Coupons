@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import registerLoginAndLogoutService from "../../services/connector";
 import { userContext, userSignUp } from "../../context/userContext";
 import "./Registration.css";
@@ -7,21 +7,10 @@ import "./Registration.css";
 import axios from "axios";
 import UserModel from "../../models/user-model";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
 export default function Registration() {
-  const NavigateToCoupons= useNavigate()
-  const getAllUsers = async () => {
-    const response = await axios.get(
-      "http://localhost:4000/api/register/users"
-    );
-    const data = response.data;
-    console.log(data);
-  };
-  useEffect(() => {
-    getAllUsers();
-  }, []);
-  // let{user,stringCode,register,login,logout} = useUserAndStringCode();
-  async function submit(arg) {
+  const NavigateToCoupons = useNavigate();
+
+   async function submit(arg) {
     const user = new UserModel(
       undefined,
       arg.target.firstName.value,
@@ -31,26 +20,18 @@ export default function Registration() {
       arg.target.city.value,
       arg.target.birthDate.value,
       arg.target.userName.value,
-      arg.target.imageName.value,
       arg.target.password.value
     );
-    registerLoginAndLogoutService.register(user)
-    
-    // userSignUp.userRegister();
-    // console.log(user);
-    //const getUserAfterRegistering = await authService.register(user);
-    //................>>>
-    //console.log("The user is"+`${getUserAfterRegistering}`);
-    // console.log(arg);
-    // console.log(arg.target);
-    // console.log(arg.target.firstName);
-    // console.log("onSubmit!!!!!!!!!!!!!!");
+    console.log("before");
+    // await registerLoginAndLogoutService.register(user);
+    console.log("after");
     arg.preventDefault();
-    NavigateToCoupons('/insert-coupons');
+    NavigateToCoupons("/");
+    
   }
   const userAfterServer = useContext(userContext);
-  console.log("first")
-    console.log(userAfterServer)
+  console.log("first in registration");
+  console.log(userAfterServer);
   // submit({age:"800"',birthDate:"00/00/00",city:"ganeden",country:"paras",firstName:"adam",id: 1,imageName:"image",lastName: "hava",password:"start000",userName: "000"})
   return (
     <div className="Registration">
@@ -72,10 +53,8 @@ export default function Registration() {
         <label htmlFor=""> Enter userName</label>
         <input type="text" placeholder="userName" name="userName" />
         <label htmlFor=""> Enter password</label>
-        <input type="password" placeholder="userName" name="password" />
-        <label htmlFor=""> Enter imageName</label>
-        <input type="text" placeholder="userName" name="imageName" />
-        <button>Register</button>
+        <input type="password" placeholder="password" name="password" />
+        <button >Register</button>
       </form>
     </div>
   );

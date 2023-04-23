@@ -1,20 +1,26 @@
 import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { itemsContext } from "../../context/itemContext";
 export default function HomePage() {
-  const [allCoupons, setAllCoupons] = useState([
-    "FirstUserWithHisCoupons",
-    "SecondUserWithHisCoupons",
-    "ThirdUserWithHisCoupons",
-    "FourthUserWithHisCoupons",
-    "FifthUserWithHisCoupons",
-    
-  ]);
+  const [items, setItems] = useState([1,2,3]);
+  const getItemsFromContext = useContext(itemsContext);
+  const navigatingToHomePage = useNavigate();
+
+  useEffect(() => {
+    setItems(getItemsFromContext.items);
+    console.log(getItemsFromContext.items);
+    console.log(items+ 'maybe this works');
+  }, [getItemsFromContext]);
   return <div>
     <h1>HomePage</h1>
-    {allCoupons.map((coupon=>{
-      return <div><Link to={'/part-of-chat'}>{coupon}</Link></div>
-    }))}
+    {
+      items.length >= 0 ?(
+        items.map(item=>{
+        return <div key={item.id}><Link to={'/items'}>{item}</Link></div>})
+      ):(<span>start</span>)
+    } 
+    
    
   
     </div>;

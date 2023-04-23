@@ -4,4 +4,4 @@ class UserLoginModel{
         this.password=password;
     }
 }
-models.exports= UserLoginModel;
+module.exports= UserLoginModel;

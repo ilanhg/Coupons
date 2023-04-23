@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./InsertCoupons.css";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { userContext } from "../context/userContext";
+import ItemModel from "../models/items-models";
 export default function InsertCoupons() {
+  const [user,setUser] = useState('ziv');
+  const getUserFromContext = useContext(userContext);
   const navigatingToHomePage = useNavigate();
+  console.log(getUserFromContext.signUpUser.firstName+ 'this is line 11')
+
   const getAllUsers = async () => {
     const response = await axios.get(
       "http://localhost:4000/api/register/users"
@@ -14,7 +20,10 @@ export default function InsertCoupons() {
   };
   useEffect(() => {
     getAllUsers();
-  }, []);
+    setUser(getUserFromContext.signUpUser);
+    console.log(user+"user line23")
+    console.log(getUserFromContext.signUpUser.firstName+ 'this is line 21')
+  }, [getUserFromContext]);
 async function submit(arg) {
     const coupon = {
       nameOfCoupon: arg.target.nameOfCoupon.value,
@@ -24,6 +33,8 @@ async function submit(arg) {
       nameOfBusinessCoupon: arg.target.nameOfBusinessCoupon.value,
       nameWebsiteOfCouponCode: arg.target.nameWebsiteOfCouponCode.value,
     };
+    const item = new ItemModel(undefined, user, coupon)
+    console.log(item)
     arg.preventDefault();
     navigatingToHomePage('/home-page');
   }
@@ -47,6 +58,9 @@ async function submit(arg) {
           <input type="text" placeholder="nameWebsiteOfCouponCode" name="nameWebsiteOfCouponCode" />
           <button>Save Coupons</button>
         </form>
+       <span>
+        {getUserFromContext.signUpUser.firstName}
+        </span> 
       </div>
     );
   }

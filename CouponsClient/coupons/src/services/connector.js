@@ -11,7 +11,9 @@ const registerLoginAndLogoutService = {
     return stringCode;
   },
   login: async (userLoginModel) => {
-    const response = await axios.post("",userLoginModel);
+    console.log("this is the "+userLoginModel.userName);
+    const response = await axios.post("http://localhost:4000/api/login",userLoginModel);
+    console.log("this is the "+userLoginModel.password);
     const stringCode = response.data;
     return stringCode;
     

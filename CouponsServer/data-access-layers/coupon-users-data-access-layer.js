@@ -7,7 +7,7 @@ async function allCoupons() {
   return coupons;
 }
 async function oneCoupons(id) {
-  const sql = `SELECT * FROM coupons WHERE  id=&{id}`;
+  const sql = `SELECT * FROM coupons WHERE  id=${id}`;
   const coupons =
     await connectOrCreatingToMySQLDb.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
   const coupon = coupons[0];
