@@ -1,8 +1,8 @@
 const express = require("express");
-require('dotenv').config()
 const server = express();
-const cors = require("cors");
+require('dotenv').config()
 server.use(express.json());
+const cors = require("cors");
 const userControler = require("./controlers/user-controler");
 const loginUsersController = require("./controlers/user-login-controler")
 // const couponsController = require('./controlers/coupons-controler')
@@ -20,6 +20,8 @@ server.use(cors());
 server.use("/api/register/users", userControler);
 // //http://localhost:4000/api/login
 server.use("/api/register/login", loginUsersController);
+///api/atuh/login
+///api/atuh/register
 //http://localhost:4000/api/coupons
 // server.use("/api/coupons",couponsController);
 server.use("*", (request, response) => {
@@ -29,6 +31,7 @@ server.use("*", (request, response) => {
 server.listen(PORT, () => {
   // setInterval(() => {
   console.log("main.js is up and running");
+  console.log(`http://localhost:${PORT}`);
   // }, SERVER_DISPLAY);
 });
 
