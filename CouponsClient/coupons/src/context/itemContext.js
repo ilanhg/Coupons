@@ -3,18 +3,21 @@ export let itemsArray = {
   items: [
     {
       id: 1,
-      user: { firstName: "", lastName: "" },
-      coupon: { couponsName: "" },
+      itemName: 1,
+      userId: 1,
+      couponId: 1 ,
     },
     {
       id: 2,
-      user: { firstName: "", lastName: "" },
-      coupon: { couponsName: "" },
+      itemName: 2,
+      userId: 2,
+      couponId: 2 ,
     },
     {
       id: 3,
-      user: { firstName: "", lastName: "" },
-      coupon: { couponsName: "" },
+      itemName: 3,
+      userId: 3,
+      couponId: 3
     },
   ],
   itemsFunction: function (getItem) {

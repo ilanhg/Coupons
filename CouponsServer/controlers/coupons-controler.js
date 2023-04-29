@@ -16,7 +16,7 @@ router.post("/", async (request, response) => {
     request.body.id,
     request.body.numberOfCouponCode,
     request.body.nameOfCoupon,
-    request.body. quantityOfCoupons,
+    request.body.quantityOfCoupons,
     request.body.expirationDateOfCoupon,
     request.body.nameOfCompanyCoupon,
     request.body.nameOfBusinessCoupon,
