@@ -1,14 +1,10 @@
 class UserModel {
-    constructor(id,firstName,lastName,age,country,city,birthDate,imageName, userName, password) {
+    constructor(id,firstName,lastName,country,email, password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
         this.country = country;
-        this.city = city;
-        this.birthDate = birthDate;
-        this.imageName = imageName;
-        this.userName = userName;
+        this.email = email;
         this.password = password;
     }
 }

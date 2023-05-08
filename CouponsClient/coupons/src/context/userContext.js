@@ -2,7 +2,12 @@ import React, { createContext } from "react";
 import { useState, useContext } from "react";
 
  export let userSignUp = {
-  signUpUser : {age:"800",birthDate:"00/00/00",city:"ganeden",country:"paras",firstName:"adam",id: 1,imageName:"image",lastName: "hava",password:"start000",userName: "000"},
+  signUpUser : { id : 1,
+    firstName : 'Ilan',
+    lastName : 'Goldstein',
+    country : 'Israel',
+    email : 'ilanhgold@gmail.com',
+    password : '123321'},
   string: "",
   userRegister: function (getUser) {
     console.log(getUser)
@@ -15,11 +20,3 @@ import { useState, useContext } from "react";
   userLogout: () => null,
 };
 export const userContext = createContext(userSignUp);
-// export const useUser = () => useContext(userContext);
-// const useProvider = ({ children }) => {
-//   let userRegister = (users)=>{
-//     let userEmail= SignUpUser.userEmail
-//   }
-// };
-
-// export default userSignUp

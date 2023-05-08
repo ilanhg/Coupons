@@ -2,7 +2,6 @@ import React from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 // import authService from './../../servics/AuthServics';
-import registerLoginAndLogoutService from "./../../services/connector";
 import UserLoginModel from './../../models/UserLoginModels';
 export default function Login() {
   const NavigateToHomePage= useNavigate();
@@ -13,7 +12,6 @@ export default function Login() {
       arg.target.password.value
     );
     arg.preventDefault();
-    registerLoginAndLogoutService.login(userLogin);
     NavigateToHomePage('/home-page');
   }
 
