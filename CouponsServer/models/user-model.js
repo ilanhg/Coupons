@@ -8,9 +8,7 @@ class UserModel {
     city,
     birthDate,
     userName,
-    password,
-    email,
-    phoneNumber
+    password,    
   ) {
     this.id = id;
     this.firstName = firstName;
@@ -21,8 +19,6 @@ class UserModel {
     this.birthDate = birthDate;
     this.userName = userName;
     this.password = password;
-    this.email = email;
-    this.phoneNumber = phoneNumber;
   }
 }
 module.exports = UserModel;

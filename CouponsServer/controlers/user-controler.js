@@ -5,42 +5,34 @@ const registeredUsersDal = require("./../data-access-layers/user-access-layer");
 router.get("/", async (request, response) => {
   const AllUsers = await registeredUsersDal.allRegisterUsersFromMysqlDatabase();
   console.log("user controller-allusers");
-  console.log(AllUsers)
+  console.log(AllUsers);
   response.json(AllUsers);
 });
 
 router.get("/:id", async (request, response) => {
   const idAfterParseToNumber = Number(request.params.id);
-  const user = await registeredUsersDal.oneRegisterUserFromMysqlDatabase(idAfterParseToNumber);
+  const user = await registeredUsersDal.oneRegisterUserFromMysqlDatabase(
+    idAfterParseToNumber
+  );
   console.log("user controller-user");
-  console.log(user)
+  console.log(user);
   response.json(user);
 });
 
 router.post("/", async (request, response) => {
-  const {
-    id,
-    firstName,
-    lastName,
-    age,
-    country,
-    city,
-    birthDate,
-    userName,
-    password,
-  } = request.body;
+
   const user = new UserModel(
-    id,
-    firstName,
-    lastName,
-    age,
-    country,
-    city,
-    birthDate,
-    userName,
-    password
-  );
-  console.log("user from client" + user);
+    request.body.id,
+      request.body.firstName,
+      request.body.lastName,
+      request.body.age,
+      request.body.country,
+      request.body.city,
+      request.body.birthDate,
+      request.body.userName,
+      request.body.password
+    );
+  console.log(user);
   const userAfterAdded = await registeredUsersDal.addUserToMysqlDatabase(user);
   response.json(userAfterAdded);
 });

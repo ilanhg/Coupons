@@ -21,9 +21,8 @@ async function addUserToMysqlDatabase(user) {
   const hashpassword = await bcrypt.hash(user.password, 10)
 
 
-  const sql = `INSERT INTO users11 (firstName,lastName,age ,country ,city ,birthDate ,imageName ,userName ,password,email,phoneNumber) VALUES ("${user.firstName}","${user.lastName}",${user.age},"${user.country}","${user.city}","${user.birthDate}","${user.userName}","${hashpassword}","${user.email}","${user.phoneNumber}" )`;
-  console.log("this is sql")
-  console.log(sql)
+  const sql = `INSERT INTO users (firstName ,lastName ,age ,country ,city ,birthDate ,userName ,password) VALUES ("${user.firstName}","${user.lastName}",${user.age},"${user.country}","${user.city}","${user.birthDate}","${user.userName}","${hashpassword}" )`;
+  // console.log("this is sql");
 
   const info = await connectingToRealDataDatabaseMysql.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
   user.id = info.insetId;
