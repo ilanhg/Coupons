@@ -17,6 +17,8 @@ connectToRealMysql.connect((err) => {
   }
   console.log("connected");
 });
+
+  
 function savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql) {
   return new Promise((resolve, reject) => {
     connectToRealMysql.query(sql, (err, result) => {

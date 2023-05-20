@@ -1,22 +1,23 @@
 class CouponsModel {
   constructor(
     id,
-    numberOfCouponCode,
-    nameOfCoupon,
-    quantityOfCoupons,
-    expirationDateOfCoupon,
-    nameOfCompanyCoupon,
-    nameOfBusinessCoupon,
-    nameWebsiteOfCouponCode
+    FK_userId,
+    couponCode,
+    couponName,
+    expirationDate,
+    couponWebsite,
+    couponAmount,
+    couponPrice
   ) {
     this.id = id;
-    this.numberOfCouponCode = numberOfCouponCode;
-    this.nameOfCoupon = nameOfCoupon;
-    this.quantityOfCoupons = quantityOfCoupons;
-    this.expirationDateOfCoupon = expirationDateOfCoupon;
-    this.nameOfCompanyCoupon = nameOfCompanyCoupon;
-    this.nameOfBusinessCoupon = nameOfBusinessCoupon;
-    this.nameWebsiteOfCouponCode = nameWebsiteOfCouponCode;
+    this.FK_userId = FK_userId;
+    this.couponCode = couponCode;
+    this.couponName = couponName;
+    this.expirationDate = expirationDate;
+    this.couponWebsite = couponWebsite;
+    this.couponAmount = couponAmount;
+    this.couponPrice = couponPrice;
   }
 }
+// const sql =`CREATE TABLE usersCoupons(id integer Primary Key auto_increment,  CONSTRAINT FK_userId FOREIGN KEY (id) REFERENCES users(id),couponCode varchar(50),couponName varchar(50),expirationDate date,couponWebsite varchar(50),couponAmount int ,couponPrice decimal)`; 
 module.exports = CouponsModel;

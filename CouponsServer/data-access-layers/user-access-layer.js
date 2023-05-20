@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 
 const connectingToRealDataDatabaseMysql = require('./../conactting_to_real_data_database_mysql/conactting-to-real-data-database-mysql');
+const { response } = require('express');
 async function allRegisterUsersFromMysqlDatabase() {
   const sql = `SELECT * FROM users`;
   const allUsers = await connectingToRealDataDatabaseMysql.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
@@ -14,6 +15,7 @@ async function oneRegisterUserFromMysqlDatabase(id) {
 }
 
 async function addUserToMysqlDatabase(user) {
+  
   console.log('this is user in user access layer')
 
   console.log(user)
@@ -25,8 +27,11 @@ async function addUserToMysqlDatabase(user) {
   // console.log("this is sql");
 
   const info = await connectingToRealDataDatabaseMysql.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
-  user.id = info.insetId;
-  return user;
+ console.log(info)
+  return (
+    user.id = info.insertId,
+    info.insertId? user:null
+  );
 
 }
 module.exports = { allRegisterUsersFromMysqlDatabase, oneRegisterUserFromMysqlDatabase, addUserToMysqlDatabase }

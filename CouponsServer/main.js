@@ -21,7 +21,7 @@ server.use("/api/register/users", userControler);
 server.use("/api/register/login", loginUsersController);
 // /api/atuh/login
 // /api/atuh/register
-http://localhost:4000/api/coupons
+//http://localhost:4000/api/coupons
 server.use("/api/coupons",couponsController);
 server.use("*", (request, response) => {
   response.json("not found!!")

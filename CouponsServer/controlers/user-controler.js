@@ -32,9 +32,13 @@ router.post("/", async (request, response) => {
       request.body.userName,
       request.body.password
     );
-  console.log(user);
+ try {console.log(user);
   const userAfterAdded = await registeredUsersDal.addUserToMysqlDatabase(user);
-  response.json(userAfterAdded);
+  if(userAfterAdded)
+{response.json(userAfterAdded);}}
+catch(error){
+  response.json(error.message)
+}
 });
 
 module.exports = router;

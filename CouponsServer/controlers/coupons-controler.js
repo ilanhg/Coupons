@@ -14,14 +14,18 @@ router.get("/:id", async (request, response) => {
 router.post("/", async (request, response) => {
   const coupon = new CouponsModel(
     request.body.id,
-    request.body.numberOfCouponCode,
-    request.body.nameOfCoupon,
-    request.body.quantityOfCoupons,
-    request.body.expirationDateOfCoupon,
-    request.body.nameOfCompanyCoupon,
-    request.body.nameOfBusinessCoupon,
-    request.body.nameWebsiteOfCouponCode 
+    request.body.FK_userId,
+    request.body.CouponCode,
+    request.body.couponName,
+    request.body.expirationDate,
+    request.body.couponWebsite,
+    request.body.couponAmount,
+    request.body.couponPrice
   );
+ 
+  
+  console.log("in coupons controller")
+  console.log(coupon)
   const savedCoupon = await couponsDal.addCouponToUsersCouponMysqlDatabase(
     coupon
   );
