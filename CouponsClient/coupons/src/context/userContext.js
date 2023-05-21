@@ -16,6 +16,12 @@ import { useState, useContext } from "react";
     console.log("second")
     console.log(this.signUpUser);
   },
+  getAllUsers:[],
+  getUsers: function (usersArray) {
+    console.log("in userContext")
+    console.log(usersArray)
+    this.getAllUsers = usersArray;
+  },
   userLogin: () => null,
   userLogout: () => null,
 };

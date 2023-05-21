@@ -5,13 +5,11 @@ import { useState, useContext } from "react";
  export let couponsItem = {
   couponItemList : [],
   getCoupons: function (getCoupons) {
+    console.log("in couponsContext")
     console.log(getCoupons)
-    console.log("firstCoupons")
     this.couponItemList = getCoupons;
-    console.log("secondCoupons")
-    console.log(this.couponItemList);
   },
 };
-export const itemContext = createContext(couponItemList);
+export const itemContext = createContext(couponsItem);
 
 

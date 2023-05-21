@@ -1,12 +1,13 @@
 import axios from "axios";
-import { couponsItem }from"../context/couponsContext"
+import {couponsItem} from"../context/couponsContext"
 
 const couponsItemService = {
   getAllCoupons: async () => {
     const response = await axios.get("http://localhost:4000/api/coupons");
     const couponsData = response.data;
+    console.log("couponsData")
     console.log(couponsData)
-    couponsItem.getAllCoupons(couponsData)
+    couponsItem.getCoupons(couponsData)
     return couponsData;
   },
   

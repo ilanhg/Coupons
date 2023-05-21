@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-// import authService from './../../servics/AuthServics';
+
 import UserLoginModel from './../../models/UserLoginModels';
+import couponsItemService from "../../services/serviceCoupon";
+import { userSignUp } from "../../context/userContext";
+import registerLoginAndLogoutService from "../../services/serveUser";
 export default function Login() {
   const NavigateToHomePage= useNavigate();
   const navigateToSignUp = useNavigate();
@@ -18,6 +21,11 @@ export default function Login() {
   function toSignUp(){
    navigateToSignUp('/sign-up')
   }
+  useEffect(()=>{
+    console.log("in login")
+    couponsItemService.getAllCoupons();
+    registerLoginAndLogoutService.getAllUsers();
+  },[])
   return (
     <div className="Login">
       <h3>Login</h3>

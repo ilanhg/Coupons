@@ -10,6 +10,14 @@ const registerLoginAndLogoutService = {
     userSignUp.userRegister(stringCode)
     return stringCode;
   },
+  getAllUsers: async () => {
+    const response = await axios.get("http://localhost:4000/api/register/users");
+    const userData = response.data;
+    console.log("get all users from service")
+    console.log(userData)
+    userSignUp.getUsers(userData)
+    return userData;
+  },
   login: async (userLoginModel) => {
     console.log("this is the "+userLoginModel.userName);
     const response = await axios.post("http://localhost:4000/api/login",userLoginModel);

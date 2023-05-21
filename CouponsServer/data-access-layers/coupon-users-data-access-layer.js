@@ -1,7 +1,7 @@
 const conactting_to_real_data_database_mysql = require("../conactting_to_real_data_database_mysql/conactting-to-real-data-database-mysql");
 async function allCoupons() {
-  const sql_example = `SELECT * FROM table_name`;
-  const sql = `SELECT * FROM couponsTable`;
+  
+  const sql = `SELECT * FROM usersCoupons`;
   const coupons =
     await conactting_to_real_data_database_mysql.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
   return coupons;
