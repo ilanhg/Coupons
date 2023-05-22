@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { userContext } from './context/userContext';
 import { userSignUp } from './context/userContext';
 import { itemsArray, itemsContext } from './context/itemContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

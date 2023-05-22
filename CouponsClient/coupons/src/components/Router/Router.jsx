@@ -15,6 +15,8 @@ export default function Routting(){
     <Route path='/insert-coupons'  element={<InsertCoupons/>}/>
     <Route path='/home-page'  element={<HomePage/>}/>
     <Route path='/part-of-chat'  element={<PartOfChat/>}/>
+    {/* <Route path='/log-out'  element={<LogOut/>}/>
+    <Route path='/my-profile'  element={<MyProfile/>}/> */}
    </Routes>
   )
 }
