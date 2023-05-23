@@ -7,6 +7,8 @@ import "./Registration.css";
 import axios from "axios";
 import UserModel from "../../models/user-model";
 import { useNavigate } from "react-router-dom";
+
+
 export default function Registration() {
   const NavigateToCoupons = useNavigate();
 
@@ -34,6 +36,7 @@ export default function Registration() {
   console.log(userAfterServer);
   // submit({age:"800"',birthDate:"00/00/00",city:"ganeden",country:"paras",firstName:"adam",id: 1,imageName:"image",lastName: "hava",password:"start000",userName: "000"})
   return (
+      
     <div className="Registration">
       {/* {userAndStringCodeProvider()} */}
       <h3>Registration</h3>
