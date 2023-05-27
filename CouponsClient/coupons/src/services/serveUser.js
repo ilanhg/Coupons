@@ -19,11 +19,10 @@ const registerLoginAndLogoutService = {
     return userData;
   },
   login: async (userLoginModel) => {
-    console.log("this is the "+userLoginModel.userName);
-    const response = await axios.post("http://localhost:4000/api/login",userLoginModel);
-    console.log("this is the "+userLoginModel.password);
-    const stringCode = response.data;
-    return stringCode;
+    console.log("user login username");
+    console.log(userLoginModel)
+    const response = await axios.post("http://localhost:4000/api/register/login",userLoginModel);
+    console.log(response.data);
     
   },
   logout: async () => {},

@@ -16,13 +16,13 @@ server.use(cors());
 
 
 // "http://localhost:4000/api/register/users/"
-server.use("/api/register/users", userControler);
-// //http://localhost:4000/api/login
+// server.use("/api/register/users", userControler);
+// //http://localhost:4000/api/register/login
 server.use("/api/register/login", loginUsersController);
 // /api/atuh/login
 // /api/atuh/register
 //http://localhost:4000/api/coupons
-server.use("/api/coupons",couponsController);
+// server.use("/api/coupons",couponsController);
 server.use("*", (request, response) => {
   response.json("not found!!")
 })
