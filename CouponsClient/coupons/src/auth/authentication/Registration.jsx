@@ -1,13 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { userContext, userSignUp } from "../../context/userContext";
 import "./Registration.css";
-// import authService from "./../../servics/AuthServics";
-// import { useUserAndStringCode } from "../../contexts/AuthenticationProcessContext";
-import axios from "axios";
 import UserModel from "../../models/user-model";
 import { useNavigate } from "react-router-dom";
+import registerLoginAndLogoutService from "../../services/serveUser";
 export default function Registration() {
-  const NavigateToCoupons = useNavigate();
+  const NavigateToLogIn = useNavigate();
 
    async function submit(arg) {
     const user = new UserModel(
@@ -18,11 +16,9 @@ export default function Registration() {
       arg.target.email.value,
       arg.target.password.value
     );
-    console.log("before");
-    // await registerLoginAndLogoutService.register(user);
-    console.log("after");
+    await registerLoginAndLogoutService.register(user);
+    NavigateToLogIn("/");
     arg.preventDefault();
-    NavigateToCoupons("/");
     
   }
   const userAfterServer = useContext(userContext);

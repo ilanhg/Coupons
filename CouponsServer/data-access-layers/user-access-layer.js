@@ -23,15 +23,15 @@ async function addUserToMysqlDatabase(user) {
   const hashpassword = await bcrypt.hash(user.password, 10)
 
 
-  const sql = `INSERT INTO users (firstName ,lastName ,age ,country ,city ,birthDate ,userName ,password) VALUES ("${user.firstName}","${user.lastName}",${user.age},"${user.country}","${user.city}","${user.birthDate}","${user.userName}","${hashpassword}" )`;
+  const sql = `INSERT INTO users (firstName ,lastName ,country ,email ,password) VALUES ("${user.firstName}","${user.lastName}","${user.country}","${user.email}","${hashpassword}" )`;
   // console.log("this is sql");
 
   const info = await connectingToRealDataDatabaseMysql.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
- console.log(info)
-  return (
-    user.id = info.insertId,
-    info.insertId? user:null
-  );
+  if (info.insertId){
+    return(
+     info.insertId? user:null
+    )
+  };
 
 }
 module.exports = { allRegisterUsersFromMysqlDatabase, oneRegisterUserFromMysqlDatabase, addUserToMysqlDatabase }

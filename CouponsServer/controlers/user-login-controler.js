@@ -6,9 +6,9 @@ const router = express.Router();
 const conactting = require("./../conactting_to_real_data_database_mysql/conactting-to-real-data-database-mysql");
 
 router.post("/", async (request, response) => {
-  console.log("userLogin" + request.body.userName);
+  console.log("userLogin" + request.body.email);
   console.log("PasswordLogin" + request.body.password);
-  const sql = `SELECT * FROM users WHERE  userName = "${request.body.userName}" and password = "${request.body.password}"`;
+  const sql = `SELECT * FROM users WHERE  email = "${request.body.email}" and password = "${request.body.password}"`;
   const allUsers = await conactting.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
   const user = allUsers[0];
       console.log(user)

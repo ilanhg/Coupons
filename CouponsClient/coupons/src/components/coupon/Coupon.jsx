@@ -25,11 +25,7 @@ export default function Coupon({coupon}) {
           <Button>Button</Button>
         </CardBody>
       </Card>
-      {/* "couponName": "גיפט קארד כללי",
-        "expirationDate": "2020-04-28T21:00:00.000Z",
-        "couponWebsite": "https://buyme.co.il",
-        "couponAmount": 1,
-        "couponPrice": 500 */}
+
     </div>
   )
 }

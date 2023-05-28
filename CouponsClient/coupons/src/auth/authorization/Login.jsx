@@ -8,16 +8,18 @@ import registerLoginAndLogoutService from "../../services/serveUser";
 export default function Login() {
   const NavigateToHomePage= useNavigate();
   const navigateToSignUp = useNavigate();
+  async function sendToServer(userLogin){
+    console.log("send to server");
+    await registerLoginAndLogoutService.login(userLogin);
+  }
   async function submit(arg) {
     arg.preventDefault();
     const userLogin = new UserLoginModel(
-      arg.target.userName.value,
+      arg.target.email.value,
       arg.target.password.value
-    );
-    console.log("UserLoginModel")
-    console.log(UserLoginModel)
-    await registerLoginAndLogoutService.login(userLogin);
-    NavigateToHomePage('/home-page');
+      );
+     sendToServer(userLogin);
+      NavigateToHomePage('/home-page');
   }
 
   function toSignUp(){
@@ -31,31 +33,30 @@ export default function Login() {
   },[])
   return (
     <div className="Login ">
-        <Navbar color="secondary" light expand="md">
+        <Navbar  style={{backgroundColor:"wheat"}}>
           <NavbarBrand href="/"><h1>Coupon</h1></NavbarBrand>
           </Navbar>
-     
-      <Container >
+
+      <Container className="text-center" >
       <h1 className="pt-5">Log In</h1>
       <p className="pt-4"><h3>Welcome to project Coupon...</h3></p>
       <Form onSubmit={submit}>
-        <FormGroup className="pt-4">
-          <Label htmlFor=""> Enter User Name</Label>
-          <Input  className="w-25 mx-auto " type="text" placeholder="User Name " name="userName" />
+        <FormGroup className="pt-4 ">
+          <Label  htmlFor=""> Enter Email</Label>
+          <Input  className="w-25 mx-auto " type="email" placeholder="Email " name="email" />
         </FormGroup>
         <FormGroup>
           <Label htmlFor=""> Enter password</Label>
           <Input className="w-25  mx-auto" type="password" placeholder="password" name="password" />
         </FormGroup>
-        <Button   >Log in  </Button>
+        <Button >Log in  </Button>
         </Form>
-        </Container>
-        <p className="pt-4 ">Forgot your password?</p>
-        <Button onClick={toSignUp}>Create new Account</Button>
+        <p className="pt-4 text-center ">Forgot your password?</p>
+        <Button className="text-center "onClick={toSignUp}>Create new Account</Button>
        <p></p>
         <p className="border border-danger w-25 mx-auto"></p>
-        <Button onClick={toSignUp}>Sign-Up with Google</Button>
-    
+        <Button name="g-sign-up" onClick={toSignUp}>Sign-Up with Google</Button>
+ </Container>
     </div>
   );
 }

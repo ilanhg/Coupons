@@ -25,11 +25,8 @@ router.post("/", async (request, response) => {
     request.body.id,
       request.body.firstName,
       request.body.lastName,
-      request.body.age,
       request.body.country,
-      request.body.city,
-      request.body.birthDate,
-      request.body.userName,
+      request.body.email,
       request.body.password
     );
  try {console.log(user);

@@ -1,6 +1,6 @@
 class UserLoginModel{
-    constructor(userName,password){
-        this.userName=userName;
+    constructor(email,password){
+        this.email=email;
         this.password=password;
     }
 }

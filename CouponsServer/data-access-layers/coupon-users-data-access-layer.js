@@ -7,7 +7,7 @@ async function allCoupons() {
   return coupons;
 }
 async function oneCoupons(id) {
-  const sql = `SELECT * FROM coupons WHERE  id=${id}`;
+  const sql = `SELECT * FROM userscoupons WHERE  id=${id}`;
   const coupons =
     await conactting_to_real_data_database_mysql.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
   const coupon = coupons[0];
@@ -20,7 +20,11 @@ async function addCouponToUsersCouponMysqlDatabase(coupon) {
   const sql = `INSERT INTO usersCoupons (FK_userId, couponCode,couponName,expirationDate,couponWebsite,couponAmount,couponPrice) VALUES ("${coupon.FK_userId}","${coupon.couponCode}","${coupon.couponName}","${coupon.expirationDate}","${coupon.couponWebsite}","${coupon.couponAmount}","${coupon.couponPrice}")`;
   const info = await conactting_to_real_data_database_mysql.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
   coupon.id = info.insetId;
-  return coupon;
+ if (info.insertId){
+   return(
+    info.insertId? coupon:null
+   )
+ };
 }
 
 module.exports = {allCoupons,oneCoupons,
