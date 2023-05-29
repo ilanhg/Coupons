@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import { userContext, userSignUp } from "../../context/userContext";
-import "./Registration.css";
 import UserModel from "../../models/user-model";
 import { useNavigate } from "react-router-dom";
 import registerLoginAndLogoutService from "../../services/serveUser";
+import { FormGroup, Input, Label,Form, Navbar, NavbarBrand } from "reactstrap";
 export default function Registration() {
   const NavigateToLogIn = useNavigate();
 
@@ -28,20 +28,33 @@ export default function Registration() {
   return (
     <div className="Registration">
       {/* {userAndStringCodeProvider()} */}
+      <Navbar  style={{backgroundColor:"wheat"}}>
+          <NavbarBrand href="/"><h1 >Coupon</h1></NavbarBrand>
+          </Navbar>
       <h3>Registration</h3>
-      <form onSubmit={submit}>
-        <label htmlFor="">Enter First Name</label>
-        <input type="text" placeholder="FirstName" name="firstName" />
-        <label htmlFor=""> Enter Last Name</label>
-        <input type="text" placeholder="lastName" name="lastName" />
-        <label htmlFor=""> Enter Country</label>
-        <input type="text" placeholder="country" name="country" />
-        <label htmlFor=""> Enter email</label>
-        <input type="email" placeholder="zivi@hotmail.com" name="email" />
-        <label htmlFor=""> Enter Password</label>
-        <input type="password" placeholder="password" name="password" />
-        <button >Register</button>
-      </form>
+      <Form onSubmit={submit}>
+        <FormGroup className="pt-2 ">
+          <Label  htmlFor=""> Enter First Name</Label>
+          <Input className="ps-2 " className=" mx-auto " type="text" placeholder="FirstName" name="firstName" />
+        </FormGroup>
+        <FormGroup className="pt-2 ">
+          <Label className="ps-2 " htmlFor=""> Enter Last Name</Label>
+          <Input  className=" mx-auto " type="text" placeholder="lastName" name="lastName" />
+        </FormGroup>
+        <FormGroup className="pt-2 ">
+          <Label className="ps-2 " htmlFor=""> Enter Country</Label>
+          <Input  className=" mx-auto " type="text" placeholder="country" name="country" />
+        </FormGroup>
+        <FormGroup className="pt-2 ">
+          <Label className="ps-2 " htmlFor=""> Enter email</Label>
+          <Input  className=" mx-auto " type="email" placeholder="zivi@hotmail.com" name="email" />
+        </FormGroup>
+        <FormGroup className="pt-2  ">
+          <Label className="ps-2 " htmlFor=""> Enter Password</Label>
+          <Input  className=" mx-auto " type="password" placeholder="password" name="password" />
+        </FormGroup>
+        </Form>
+      
     </div>
   );
 }
