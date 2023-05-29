@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import "./InsertCoupons.css";
-import { useNavigate } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { userContext } from "../context/userContext";
 import ItemModel from "../models/items-models";
 import CouponsModel from "../models/coupon-modle";
 import couponsItemService from "../services/serviceCoupon";
+import { Button, Col, Container, FormGroup, Input, Label, Row } from "reactstrap";
 export default function InsertCoupons() {
   const [user,setUser] = useState('ziv');
   const getUserFromContext = useContext(userContext);
@@ -42,26 +43,99 @@ async function submit(arg) {
    arg.preventDefault();
   }
     return (
-      <div className="InsertCoupons">
-         <h3> Insert Coupons</h3>
-       <form onSubmit={submit}>
-          <label htmlFor=""> Enter Coupon Code</label>
-          <input type="text" placeholder="Coupon Code" name="couponCode" />
-          <label htmlFor="">Enter Coupon Name</label>
-          <input type="text" placeholder="Coupon Name" name="couponName" />
-          <label htmlFor=""> Enter Expiration Date</label>
-          <input type="date" placeholder="Expiration Date" name="expirationDate" />
-          <label htmlFor="">Enter Coupon Website</label>
-          <input type="text" placeholder="Coupon Website" name="couponWebsite"  />
-          <label htmlFor=""> Enter Coupon Amount</label>
-          <input type="number" placeholder="Coupon Amount"  name="couponAmount"/>
-          <label htmlFor=""> Enter Coupon Price</label>
-          <input type="number" placeholder="Coupon Price" name="couponPrice" />
-          <button>Save Coupons</button>
-        </form>
-       <span>
-        {/* {getUserFromContext.signUpUser.firstName} */}
-        </span> 
-      </div>
-    );
-  }
+      <Container
+      className="bg-Light"
+      fluid= "sm"
+    >
+      <h4 className="d-grid gap-2 col-2 mx-auto text-primary" > Insert Coupons</h4>
+  <Form onSubmit={submit}  >
+    <Row>
+      <Col md={6}>
+        <FormGroup>
+          <Label for="CouponCode">
+          Enter Coupon Code
+          </Label>
+          <Input
+            name="CouponCode"
+            type="text"
+          />
+        </FormGroup>
+      </Col>
+      <Col md={6}>
+        <FormGroup>
+          <Label for=" CouponName">
+          Enter Coupon Name
+          </Label>
+          <Input
+            name=" CouponName"
+            type="text"
+          />
+        </FormGroup>
+      </Col>
+    </Row>
+    <Row>
+      <Col md={6}>
+        <FormGroup>
+          <Label for="quantityOfCoupons">
+          Enter quantity Of Coupons
+          </Label>
+          <Input
+            name="quantityOfCoupons"
+            type="text"
+          />
+        </FormGroup>
+      </Col>
+      <Col md={6}>
+        <FormGroup>
+          <Label for="ExpirationDate">
+          Enter Expiration Date
+          </Label>
+          <Input
+            name="ExpirationDate"
+            type="date"
+          />
+        </FormGroup>
+      </Col>
+    </Row>
+    <Row>
+      <Col md={4}>
+        <FormGroup>
+          <Label for="CouponWebsite">
+          Enter Coupon Website
+          </Label>
+          <Input
+            name="CouponWebsite"
+            type="text"
+          />
+        </FormGroup>
+      </Col>
+      <Col md={4}>
+        <FormGroup>
+          <Label for="CouponAmount">
+          Enter Coupon Amount
+          </Label>
+          <Input
+            name="CouponAmount"
+            type="text"
+          />
+        </FormGroup>
+      </Col>
+      <Col md={4}>
+        <FormGroup>
+          <Label for=" CouponPrice">
+          Enter Coupon Price
+          </Label>
+          <Input
+            name="CouponPrice"
+            type="text"
+          />
+        </FormGroup>
+      </Col>
+    </Row>
+    <Button className="bg-primary d-grid gap-2 col-2 mx-auto">
+    save coupons
+    </Button>
+  </Form>
+  </Container>
+
+    )}

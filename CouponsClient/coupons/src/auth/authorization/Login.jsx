@@ -23,7 +23,7 @@ export default function Login() {
   }
 
   function toSignUp(){
-   navigateToSignUp('/sign-up')
+   navigateToSignUp('/registration')
   }
   useEffect(()=>{
     console.log("in login")
@@ -32,16 +32,16 @@ export default function Login() {
     registerLoginAndLogoutService.getAllUsers();
   },[])
   return (
-    <div className="Login ">
+    <div  className="Login " >
         <Navbar  style={{backgroundColor:"wheat"}}>
-          <NavbarBrand href="/"><h1>Coupon</h1></NavbarBrand>
+          <NavbarBrand href="/"><h1 >Coupon</h1></NavbarBrand>
           </Navbar>
 
       <Container className="text-center" >
-      <h1 className="pt-5">Log In</h1>
-      <p className="pt-4"><h3>Welcome to project Coupon...</h3></p>
+      <h1 className="pt-3">Log In</h1>
+      <p className="pt-3"><h3>Welcome to project Coupon...</h3></p>
       <Form onSubmit={submit}>
-        <FormGroup className="pt-4 ">
+        <FormGroup className="pt-2 ">
           <Label  htmlFor=""> Enter Email</Label>
           <Input  className="w-25 mx-auto " type="email" placeholder="Email " name="email" />
         </FormGroup>
@@ -51,11 +51,11 @@ export default function Login() {
         </FormGroup>
         <Button >Log in  </Button>
         </Form>
-        <p className="pt-4 text-center ">Forgot your password?</p>
+        <p className="pt-2 text-center ">Forgot your password?</p>
         <Button className="text-center "onClick={toSignUp}>Create new Account</Button>
-       <p></p>
-        <p className="border border-danger w-25 mx-auto"></p>
-        <Button name="g-sign-up" onClick={toSignUp}>Sign-Up with Google</Button>
+        <p></p>
+        <p className="border border-warning w-50 mx-auto "></p>
+        <Button name="g-sign-up " onClick={toSignUp}>Sign-Up with Google</Button>
  </Container>
     </div>
   );
