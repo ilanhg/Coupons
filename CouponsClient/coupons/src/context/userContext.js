@@ -2,19 +2,9 @@ import React, { createContext } from "react";
 import { useState, useContext } from "react";
 
  export let userSignUp = {
-  signUpUser : { id : 1,
-    firstName : 'Ilan',
-    lastName : 'Goldstein',
-    country : 'Israel',
-    email : 'ilanhgold@gmail.com',
-    password : '123321'},
-  string: "",
+  signUpUser : {name:'ziv',id:1}, 
   userRegister: function (getUser) {
-    console.log(getUser)
-    console.log("first")
     this.signUpUser = getUser;
-    console.log("second")
-    console.log(this.signUpUser);
   },
   getAllUsers:[],
   getUsers: function (usersArray) {

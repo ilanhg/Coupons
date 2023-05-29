@@ -4,11 +4,9 @@ import { userSignUp } from "../context/userContext";
 const registerLoginAndLogoutService = {
   register: async (user) => {
     const response = await axios.post("http://localhost:4000/api/register/users",user);
-    const stringCode = response.data;
-    console.log(stringCode)
-    console.log("sjsjw")
-    userSignUp.userRegister(stringCode)
-    return stringCode;
+    const regData = response.data;
+    userSignUp.userRegister(regData)
+    return regData;
   },
   getAllUsers: async () => {
     const response = await axios.get("http://localhost:4000/api/register/users");
