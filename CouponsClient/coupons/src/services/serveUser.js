@@ -20,6 +20,7 @@ const registerLoginAndLogoutService = {
     console.log("user login username");
     console.log(userLoginModel)
     const response = await axios.post("http://localhost:4000/api/register/login",userLoginModel);
+    userSignUp.userRegister(response.data)
     console.log("login user");
     console.log(response.data);
     

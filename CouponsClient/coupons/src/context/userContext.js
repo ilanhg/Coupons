@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import { useState, useContext } from "react";
 
  export let userSignUp = {
-  signUpUser : {name:'ziv',id:1}, 
+  signUpUser : {}, 
   userRegister: function (getUser) {
     this.signUpUser = getUser;
   },

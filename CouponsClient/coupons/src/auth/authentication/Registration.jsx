@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 import registerLoginAndLogoutService from "../../services/serveUser";
 import { FormGroup, Input, Label,Form, Navbar, NavbarBrand,Button } from "reactstrap";
 export default function Registration() {
-  const NavigateToLogIn = useNavigate();
+  const navigate = useNavigate();
 
    async function submit(arg) {
+     arg.preventDefault(); 
     const user = new UserModel(
       undefined,
       arg.target.firstName.value,
@@ -16,9 +17,8 @@ export default function Registration() {
       arg.target.email.value,
       arg.target.password.value
     );
-    await registerLoginAndLogoutService.register(user);
-    NavigateToLogIn("/");
-    arg.preventDefault(); 
+   await registerLoginAndLogoutService.register(user);
+    navigate("/");
   }
 
   

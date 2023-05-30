@@ -15,7 +15,7 @@ router.post("/", async (request, response) => {
   const coupon = new CouponsModel(
     request.body.id,
     request.body.FK_userId,
-    request.body.CouponCode,
+    request.body.couponCode,
     request.body.couponName,
     request.body.expirationDate,
     request.body.couponWebsite,

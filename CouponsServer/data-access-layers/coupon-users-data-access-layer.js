@@ -17,15 +17,13 @@ async function oneCoupons(id) {
 async function addCouponToUsersCouponMysqlDatabase(coupon) {
   console.log("in addCouponToUsersCouponMysqlDatabase" )
   console.log(coupon)
-//   const sql = `INSERT INTO usersCoupons (FK_userId, couponCode,couponName,expirationDate,couponWebsite,couponAmount,couponPrice) VALUES ("${coupon.FK_userId}","${coupon.couponCode}","${coupon.couponName}","${coupon.expirationDate}","${coupon.couponWebsite}","${coupon.couponAmount}","${coupon.couponPrice}")`;
-//   const info = await conactting_to_real_data_database_mysql.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
-//   coupon.id = info.insetId;
-//  if (info.insertId){
-//    return(
-//     info.insertId? coupon:null
-//    )
-//  };
-}
+  const sql = `INSERT INTO usersCoupons (FK_userId, couponCode,couponName,expirationDate,couponWebsite,couponAmount,couponPrice) VALUES (${coupon.FK_userId},"${coupon.couponCode}","${coupon.couponName}","${coupon.expirationDate}","${coupon.couponWebsite}","${coupon.couponAmount}","${coupon.couponPrice}")`;
+  const info = await conactting_to_real_data_database_mysql.savingCouponsIntoRealMysqlOrGettingCouponsFromRealMysql(sql);
+  console.log(info)
+  coupon.id = info.insetId;
+   return info.insertId? coupon:null
+ };
+
 
 module.exports = {allCoupons,oneCoupons,
   addCouponToUsersCouponMysqlDatabase,
