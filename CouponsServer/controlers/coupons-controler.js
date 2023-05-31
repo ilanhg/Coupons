@@ -19,7 +19,6 @@ router.post("/", async (request, response) => {
     request.body.couponName,
     request.body.expirationDate,
     request.body.couponWebsite,
-    request.body.couponAmount,
     request.body.couponPrice
   );
  

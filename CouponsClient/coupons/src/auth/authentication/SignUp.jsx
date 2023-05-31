@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FormContainer } from "./SignUpStyled";
+
 // import { GoogleLogin } from 'react-google-login';
 export default function SignUp() {
   const navigateToRegistration = useNavigate();
@@ -14,7 +14,7 @@ export default function SignUp() {
     navigateToRegistration('/registration')
   }
   return (
-    <FormContainer>
+<div>
       <h1>Sign Up</h1>
       <p>
         Join Coupon.com for free. No credit card needed.
@@ -24,6 +24,7 @@ export default function SignUp() {
       <button onClick={facebookSignUp}>Sign Up with Facebook</button>
         <button>Sign Up</button>
       </form>
-    </FormContainer>
+      </div>
+   
   );
 }

@@ -6,7 +6,6 @@ class CouponsModel {
     couponName,
     expirationDate,
     couponWebsite,
-    couponAmount,
     couponPrice
   ) {
     this.id = id;
@@ -15,7 +14,6 @@ class CouponsModel {
     this.couponName = couponName;
     this.expirationDate = expirationDate;
     this.couponWebsite = couponWebsite;
-    this.couponAmount = couponAmount;
     this.couponPrice = couponPrice;
   }
 }

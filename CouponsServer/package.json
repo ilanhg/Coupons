@@ -1,7 +1,6 @@
 {
   "name": "new_int_ziv",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
     "start": "nodemon main.js",
@@ -20,5 +19,7 @@
     "nodemon": "^2.0.22",
     "react-router-dom": "^6.9.0",
     "sql": "^0.78.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

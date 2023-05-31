@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import "./InsertCoupons.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -38,7 +37,6 @@ export default function InsertCoupons() {
       arg.target.couponName.value,
       arg.target.expirationDate.value,
       arg.target.couponWebsite.value,
-      arg.target.couponAmount.value,
       arg.target.couponPrice.value
     );
     // //
@@ -59,45 +57,37 @@ export default function InsertCoupons() {
           <Col md={6}>
             <FormGroup>
               <Label>Enter Coupon Code</Label>
-              <Input name="couponCode" type="text" />
+              <Input name="couponCode" type="text" required/>
             </FormGroup>
           </Col>
           <Col md={6}>
             <FormGroup>
               <Label>Enter Coupon Name</Label>
-              <Input name="couponName" type="text" />
+              <Input name="couponName" type="text" required/>
             </FormGroup>
           </Col>
         </Row>
         <Row>
-          <Col md={6}>
+          <Col md={4}>
             <FormGroup>
               <Label>Enter Expiration Date</Label>
-              <Input name="expirationDate" type="date" />
-            </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={4}>
-            <FormGroup>
-              <Label>Enter Coupon Website</Label>
-              <Input name="couponWebsite" type="text" />
+              <Input name="expirationDate" type="date" required/>
             </FormGroup>
           </Col>
           <Col md={4}>
             <FormGroup>
-              <Label>Enter Coupon Amount</Label>
-              <Input name="couponAmount" type="text" />
+              <Label for="website">Enter Coupon Website</Label>
+              <Input type="url" id="website" name="website"   placeholder="https://www.website.com" required/>
             </FormGroup>
           </Col>
           <Col md={4}>
             <FormGroup>
               <Label>Enter Coupon Price</Label>
-              <Input name="couponPrice" type="text" />
+              <Input name="couponPrice" type="text" required/>
             </FormGroup>
           </Col>
         </Row>
-        <Button className="bg-primary d-grid gap-2 col-2 mx-auto">
+        <Button  className="bg-primary d-grid gap-2 col-2 mx-auto">
           save coupons
         </Button>
       </Form>

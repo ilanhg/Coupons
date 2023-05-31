@@ -9,6 +9,7 @@ import {
   NavbarBrand,
   Button,
   Form,
+  FormFeedback,
 } from "reactstrap";
 import UserLoginModel from "./../../models/UserLoginModels";
 import couponsItemService from "../../services/serviceCoupon";
@@ -17,7 +18,7 @@ import registerLoginAndLogoutService from "../../services/serveUser";
 
 export default function Login() {
   const navigate = useNavigate();
-  
+
   async function sendToServer(userLogin) {
     console.log("send to server");
     await registerLoginAndLogoutService.login(userLogin);
@@ -44,7 +45,7 @@ export default function Login() {
     couponsItemService.getAllCoupons();
     registerLoginAndLogoutService.getAllUsers();
   }, []);
-  
+
   return (
     <div className="Login ">
       <Navbar style={{ backgroundColor: "wheat" }}>
@@ -64,9 +65,9 @@ export default function Login() {
             <Input
               className="w-25 mx-auto "
               type="email"
-              placeholder="Email "
+              placeholder="Email@email.com"
               name="email"
-            />
+            required/>
           </FormGroup>
           <FormGroup>
             <Label htmlFor=""> Enter password</Label>
@@ -75,7 +76,8 @@ export default function Login() {
               type="password"
               placeholder="password"
               name="password"
-            />
+              minLength={8}
+           required />
           </FormGroup>
           <Button>Log in </Button>
         </Form>
