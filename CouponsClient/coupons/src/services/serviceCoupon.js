@@ -1,5 +1,5 @@
 import axios from "axios";
-import {couponsItem} from"../context/couponsContext"
+import {coupons} from"../context/couponsContext"
 
 const couponsItemService = {
   getAllCoupons: async () => {
@@ -7,7 +7,7 @@ const couponsItemService = {
     const couponsData = response.data;
     console.log("couponsData")
     console.log(couponsData)
-    couponsItem.getCoupons(couponsData)
+    coupons.getCoupons(couponsData)
     return couponsData;
   },
   

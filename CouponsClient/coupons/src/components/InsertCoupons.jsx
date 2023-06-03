@@ -45,6 +45,7 @@ export default function InsertCoupons() {
     sendCouponToServer(coupon);
     navigate("/home-page");
   }
+  const initialUrl = "http://";
 
   return (
     <Container className="bg-Light" fluid="sm">
@@ -77,7 +78,7 @@ export default function InsertCoupons() {
           <Col md={4}>
             <FormGroup>
               <Label for="website">Enter Coupon Website</Label>
-              <Input type="url" id="website" name="website"   placeholder="https://www.website.com" required/>
+              <Input type="url" id="website" name="couponWebsite"   placeholder="https://www.website.com" defaultValue={initialUrl} required/>
             </FormGroup>
           </Col>
           <Col md={4}>

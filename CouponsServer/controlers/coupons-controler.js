@@ -3,8 +3,13 @@ const router = express.Router();
 const CouponsModel = require(".././models/coupons-model")
 const couponsDal = require("../data-access-layers/coupon-users-data-access-layer")
 router.get("/", async (request, response) => {
-  const coupons = await couponsDal.allCoupons();
-  response.json(coupons);
+  try {
+    const coupons = await couponsDal.allCoupons();
+    response.json(coupons);
+    
+  } catch (error) {
+    console.log(error)
+  }
 });
 router.get("/:id", async (request, response) => {
   const idAfterParseToNumber = Number(request.params.id);

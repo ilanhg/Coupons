@@ -2,14 +2,14 @@ import React, { createContext } from "react";
 import { useState, useContext } from "react";
 
 
- export let couponsItem = {
-  couponItemList : [],
+ export let coupons = {
+  couponList : [],
   getCoupons: function (getCoupons) {
     console.log("in couponsContext")
     console.log(getCoupons)
-    this.couponItemList = getCoupons;
+    this.couponList = getCoupons;
   },
 };
-export const itemContext = createContext(couponsItem);
+export const couponContext = createContext(coupons);
 
 
